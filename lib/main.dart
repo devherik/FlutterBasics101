@@ -1,19 +1,27 @@
 import 'package:basic101/config/app_router.dart';
+import 'package:basic101/config/app_theme.dart';
 import 'package:flutter/material.dart';
 
+import 'package:basic101/config/app_globals.dart' as global;
+
 void main() {
-  runApp(const MyApp());
+  runApp(const Basic101());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Basic101 extends StatefulWidget {
+  const Basic101({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<Basic101> createState() => _Basic101State();
+}
+
+class _Basic101State extends State<Basic101> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter().router,
       debugShowCheckedModeBanner: false,
+      theme: global.dayTheme ? AppTheme.day : AppTheme.night,
     );
   }
 }
