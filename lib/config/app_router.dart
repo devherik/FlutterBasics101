@@ -21,14 +21,30 @@ class AppRouter {
         GoRoute(
           path: 'auth',
           name: 'auth',
-          builder: (context, state) => const AuthPage(),
+          pageBuilder: (context, state) => CustomTransitionPage<void>(
+            child: const AuthPage(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) =>
+                    FadeTransition(
+              opacity: animation,
+              child: child,
+            ),
+          ),
         ),
         GoRoute(
           path: 'valuenotifier',
           name: 'valuenotifier',
-          builder: (context, state) => const ValuenotifierPage(),
+          pageBuilder: (context, state) => CustomTransitionPage<void>(
+            child: const ValuenotifierPage(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) =>
+                    FadeTransition(
+              opacity: animation,
+              child: child,
+            ),
+          ),
         )
       ],
     ),
-  ], initialLocation: '/home');
+  ], initialLocation: '/home/auth');
 }
