@@ -27,12 +27,13 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: MediaQuery.of(context).size.height * .25),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 14),
                   child: Text(
-                    'Bem vindo ao Basic 101, app voltado a testes e aprimoramento.',
+                    'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it',
                     style: TextStyle(
-                        fontSize: 38,
+                        fontSize: 28,
                         letterSpacing: 0,
                         leadingDistribution:
                             TextLeadingDistribution.proportional),

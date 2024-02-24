@@ -46,5 +46,5 @@ class AppRouter {
         )
       ],
     ),
-  ], initialLocation: '/home/auth');
+  ], initialLocation: '/home');
 }

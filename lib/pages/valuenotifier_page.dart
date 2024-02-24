@@ -49,10 +49,7 @@ class _ValuenotifierPageState extends State<ValuenotifierPage> {
                     color: global.brightGrey, letterSpacing: 3, fontSize: 16),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
-              child: Divider(),
-            ),
+            const SizedBox(height: 15),
             MaterialButton(
               padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
               minWidth: MediaQuery.of(context).size.width,
@@ -68,10 +65,7 @@ class _ValuenotifierPageState extends State<ValuenotifierPage> {
                     color: global.brightGrey, letterSpacing: 3, fontSize: 16),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
-              child: Divider(),
-            ),
+            const SizedBox(height: 15),
             MaterialButton(
               padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
               minWidth: MediaQuery.of(context).size.width,
@@ -87,10 +81,7 @@ class _ValuenotifierPageState extends State<ValuenotifierPage> {
                     color: global.brightGrey, letterSpacing: 3, fontSize: 16),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
-              child: Divider(),
-            ),
+            const SizedBox(height: 15),
             MaterialButton(
               padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
               minWidth: MediaQuery.of(context).size.width,
