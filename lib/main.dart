@@ -1,8 +1,7 @@
 import 'package:basic101/config/app_router.dart';
 import 'package:basic101/config/app_theme.dart';
+import 'package:basic101/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
-
-import 'package:basic101/config/app_globals.dart' as global;
 
 void main() {
   runApp(const Basic101());
@@ -16,12 +15,14 @@ class Basic101 extends StatefulWidget {
 }
 
 class _Basic101State extends State<Basic101> {
+  final homeController = HomeController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter().router,
       debugShowCheckedModeBanner: false,
-      theme: global.dayTheme ? AppTheme.day : AppTheme.night,
+      theme: AppTheme.night,
     );
   }
 }

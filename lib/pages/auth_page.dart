@@ -13,10 +13,6 @@ class AuthPage extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        // decoration: const BoxDecoration(
-        //     image: DecorationImage(
-        //         image: AssetImage(global.scaffoldAssetImage),
-        //         fit: BoxFit.fill)),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,6 +22,11 @@ class AuthPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 14),
                 child: Text(
                   'Bem vindo ao Basic 101, app voltado a testes e aprimoramento.',
+                  style: TextStyle(
+                      fontSize: 38,
+                      letterSpacing: 0,
+                      leadingDistribution:
+                          TextLeadingDistribution.proportional),
                 ),
               ),
               const Padding(
@@ -41,13 +42,10 @@ class AuthPage extends StatelessWidget {
                   onPressed: () {
                     context.push('/home');
                   },
-                  splashColor: Colors.white,
-                  elevation: 2,
-                  color: global.sombreGrey,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(26)),
                   child: const Text(
-                    'Login',
+                    'Value Notifier Example',
                     style: TextStyle(
                         color: global.brightGrey,
                         letterSpacing: 3,
