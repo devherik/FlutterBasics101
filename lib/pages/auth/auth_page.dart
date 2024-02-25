@@ -15,7 +15,7 @@ class _AuthPageState extends State<AuthPage> {
   final _controller = AuthController();
   final _nameTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
-  bool _showPassword = false;
+  bool _hidePassword = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +97,6 @@ class _AuthPageState extends State<AuthPage> {
         keyboardType: TextInputType.name,
         textInputAction: TextInputAction.next,
         textAlign: TextAlign.start,
-        maxLength: 16,
         style: const TextStyle(
             fontSize: 16, color: global.brightGrey, letterSpacing: 3),
         decoration: InputDecoration(
@@ -133,7 +132,7 @@ class _AuthPageState extends State<AuthPage> {
         maxLines: 1,
         keyboardType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.next,
-        obscureText: _showPassword,
+        obscureText: _hidePassword,
         textAlign: TextAlign.start,
         style: const TextStyle(
             fontSize: 16, color: global.brightGrey, letterSpacing: 3),
@@ -164,18 +163,18 @@ class _AuthPageState extends State<AuthPage> {
               fontSize: 14, color: Colors.grey, letterSpacing: 3),
           suffixIcon: GestureDetector(
             onTap: () => setState(() {
-              _showPassword = !_showPassword;
+              _hidePassword = !_hidePassword;
             }),
-            child: _showPassword
+            child: _hidePassword
                 ? const Icon(
                     Icons.visibility_off,
                     size: 22,
-                    color: global.brightGrey,
+                    color: global.majesticMist,
                   )
                 : const Icon(
                     Icons.visibility,
                     size: 22,
-                    color: global.brightGrey,
+                    color: global.majesticMist,
                   ),
           ),
         ),
