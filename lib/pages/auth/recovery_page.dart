@@ -27,6 +27,7 @@ class RecoveryPage extends StatelessWidget {
               children: <Widget>[
                 const Text(
                   'Tell us your email, we\'ll send you a reset link',
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 50),

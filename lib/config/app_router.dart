@@ -76,5 +76,5 @@ class AppRouter {
         )
       ],
     ),
-  ], initialLocation: '/home/auth/newaccount');
+  ], initialLocation: '/home');
 }

@@ -31,9 +31,9 @@ class _HomePageState extends State<HomePage> {
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 14),
                   child: Text(
-                    'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it',
+                    'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it.',
                     style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 26,
                         letterSpacing: 0,
                         leadingDistribution:
                             TextLeadingDistribution.proportional),
@@ -54,14 +54,25 @@ class _HomePageState extends State<HomePage> {
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(26)),
-                    child: const Text(
-                      'Value Notifier Simple Sample',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: global.brightGrey,
-                        letterSpacing: 3,
-                        fontSize: 16,
-                      ),
+                    child: const Wrap(
+                      children: [
+                        Center(
+                          child: Text(
+                            'Value Notifier Simple Sample ',
+                            style: TextStyle(
+                              color: global.brightGrey,
+                              letterSpacing: 3,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        Center(
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: global.brightGrey,
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -76,14 +87,25 @@ class _HomePageState extends State<HomePage> {
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(26)),
-                    child: const Text(
-                      'Form Authentication Simple Sample',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: global.brightGrey,
-                        letterSpacing: 3,
-                        fontSize: 16,
-                      ),
+                    child: const Wrap(
+                      children: [
+                        Center(
+                          child: Text(
+                            'Form Authentication Simple Sample ',
+                            style: TextStyle(
+                              color: global.brightGrey,
+                              letterSpacing: 3,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        Center(
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: global.brightGrey,
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
