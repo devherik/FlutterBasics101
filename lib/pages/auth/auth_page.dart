@@ -16,6 +16,24 @@ class _AuthPageState extends State<AuthPage> {
   final _nameTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
   bool _hidePassword = true;
+  bool _loginButtomState = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _passwordTextController.addListener(() {
+      if (_nameTextController.text.isNotEmpty &&
+          _passwordTextController.text.isNotEmpty) {
+        setState(() {
+          _loginButtomState = true;
+        });
+      } else {
+        _loginButtomState = false;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +55,7 @@ class _AuthPageState extends State<AuthPage> {
               verticalDirection: VerticalDirection.down,
               children: <Widget>[
                 const Text(
-                  'Seja bem-vindo de volta',
+                  'Welcome back',
                   style: TextStyle(fontSize: 18),
                 ),
                 const SizedBox(height: 50),
@@ -183,12 +201,14 @@ class _AuthPageState extends State<AuthPage> {
   Widget loginButtom() => MaterialButton(
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {
-          _checkInputs()
-              ? _controller
-                  .setName("Hello, ${_nameTextController.text.trim()}!")
-              : _controller.setName('You\'ll need a name, mate!');
-        },
+        onPressed: _loginButtomState
+            ? () {
+                _checkInputs()
+                    ? _controller
+                        .setName("Hello, ${_nameTextController.text.trim()}!")
+                    : _controller.setName('You\'ll need a name, mate!');
+              }
+            : null,
         splashColor: global.brightGrey,
         elevation: 2,
         color: global.sombreGrey,
