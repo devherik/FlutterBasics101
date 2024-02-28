@@ -1,7 +1,6 @@
 import 'package:basic101/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:basic101/config/app_globals.dart' as global;
-import 'package:go_router/go_router.dart';
 
 class NewaccountPage extends StatefulWidget {
   const NewaccountPage({super.key});
@@ -105,7 +104,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
         controller: _passwordTextController,
         onChanged: progressBar(),
         maxLines: 1,
-        maxLength: 8,
+        maxLength: 16,
         keyboardType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.next,
         obscureText: _hidePassword,
@@ -127,11 +126,14 @@ class _NewaccountPageState extends State<NewaccountPage> {
                 ],
               ),
               const SizedBox(height: 10),
-              const Text('Must have at least',
-                  style: TextStyle(fontSize: 12, color: global.majesticMist)),
-              const Text(
-                  '  • 8 characters\n  • 1 lower case character\n  • 1 number',
-                  style: TextStyle(fontSize: 10, color: global.majesticMist)),
+              ValueListenableBuilder(
+                valueListenable: _controller.validatorsWidgets,
+                builder: (context, validators, child) => Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: validators,
+                ),
+              ),
             ],
           ),
           contentPadding:
@@ -196,43 +198,49 @@ class _NewaccountPageState extends State<NewaccountPage> {
     var list = <Widget>[];
     switch (_passwordTextController.text.length) {
       case 0:
-        for (var i = 0; i < 6; i++) {
-          list.add(const Text('*',
-              style: TextStyle(fontSize: 12, color: global.majesticMist)));
+        if (_controller
+            .passwordCheckValidators(_passwordTextController.text.trim())) {
+          list.add(const Text('none',
+              style: TextStyle(fontSize: 12, color: global.naturallyCalm)));
+          _controller.updateProgressBar(list);
+        } else {
+          list.add(const Text('none',
+              style: TextStyle(fontSize: 12, color: global.naturallyCalm)));
+          _controller.updateProgressBar(list);
         }
-        _controller.updateProgressBar(list);
-      case < 4:
-        for (var i = 0; i < 2; i++) {
-          list.add(const Text('*',
-              style: TextStyle(fontSize: 12, color: Colors.yellowAccent)));
+      case < 8:
+        if (_controller
+            .passwordCheckValidators(_passwordTextController.text.trim())) {
+          list.add(const Text('invalid',
+              style: TextStyle(fontSize: 12, color: global.red)));
+          _controller.updateProgressBar(list);
+        } else {
+          list.add(const Text('invalid',
+              style: TextStyle(fontSize: 12, color: global.red)));
+          _controller.updateProgressBar(list);
         }
-        for (var i = 0; i < 4; i++) {
-          list.add(const Text('*',
-              style: TextStyle(fontSize: 12, color: global.majesticMist)));
+      case < 12:
+        if (_controller
+            .passwordCheckValidators(_passwordTextController.text.trim())) {
+          list.add(const Text('medium',
+              style: TextStyle(fontSize: 12, color: global.blue)));
+          _controller.updateProgressBar(list);
+        } else {
+          list.add(const Text('invalid',
+              style: TextStyle(fontSize: 12, color: global.red)));
+          _controller.updateProgressBar(list);
         }
-        list.add(const Text(' weak',
-            style: TextStyle(fontSize: 12, color: Colors.yellowAccent)));
-        _controller.updateProgressBar(list);
-      case < 6:
-        for (var i = 0; i < 4; i++) {
-          list.add(const Text('*',
-              style: TextStyle(fontSize: 12, color: Colors.lightGreen)));
+      case > 12:
+        if (_controller
+            .passwordCheckValidators(_passwordTextController.text.trim())) {
+          list.add(const Text('strong',
+              style: TextStyle(fontSize: 12, color: global.green)));
+          _controller.updateProgressBar(list);
+        } else {
+          list.add(const Text('invalid',
+              style: TextStyle(fontSize: 12, color: global.red)));
+          _controller.updateProgressBar(list);
         }
-        for (var i = 0; i < 2; i++) {
-          list.add(const Text('*',
-              style: TextStyle(fontSize: 12, color: global.majesticMist)));
-        }
-        list.add(const Text(' medium',
-            style: TextStyle(fontSize: 12, color: Colors.lightGreen)));
-        _controller.updateProgressBar(list);
-      case > 6:
-        for (var i = 0; i < 6; i++) {
-          list.add(const Text('*',
-              style: TextStyle(fontSize: 12, color: Colors.green)));
-        }
-        list.add(const Text(' strong',
-            style: TextStyle(fontSize: 12, color: Colors.green)));
-        _controller.updateProgressBar(list);
         break;
       default:
     }
