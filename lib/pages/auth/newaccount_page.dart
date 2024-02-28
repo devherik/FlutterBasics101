@@ -14,6 +14,8 @@ class _NewaccountPageState extends State<NewaccountPage> {
   final _nameTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
   bool _hidePassword = true;
+  bool _createButtomState = false;
+  bool _passwordFielState = false;
 
   @override
   void initState() {
@@ -23,13 +25,25 @@ class _NewaccountPageState extends State<NewaccountPage> {
       progressBar();
       setState(() {});
     });
+    _nameTextController.addListener(() {
+      if (_nameTextController.text.isNotEmpty &&
+          _nameTextController.text.length >= 8) {
+        setState(() {
+          _passwordFielState = true;
+        });
+      } else {
+        setState(() {
+          _passwordFielState = false;
+        });
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color.fromARGB(0, 32, 10, 10),
         centerTitle: true,
       ),
       extendBodyBehindAppBar: true,
@@ -101,6 +115,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
       );
 
   Widget newPasswordField() => TextFormField(
+        enabled: _passwordFielState,
         controller: _passwordTextController,
         onChanged: progressBar(),
         maxLines: 1,
@@ -127,7 +142,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
               ),
               const SizedBox(height: 10),
               ValueListenableBuilder(
-                valueListenable: _controller.validatorsWidgets,
+                valueListenable: _controller.validatorsWidgets$,
                 builder: (context, validators, child) => Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,7 +197,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
   Widget confirmNewaccountButtom() => MaterialButton(
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {},
+        onPressed: _createButtomState ? () {} : null,
         splashColor: global.brightGrey,
         elevation: 2,
         color: global.sombreGrey,
@@ -203,10 +218,12 @@ class _NewaccountPageState extends State<NewaccountPage> {
           list.add(const Text('none',
               style: TextStyle(fontSize: 12, color: global.naturallyCalm)));
           _controller.updateProgressBar(list);
+          _createButtomState = false;
         } else {
           list.add(const Text('none',
               style: TextStyle(fontSize: 12, color: global.naturallyCalm)));
           _controller.updateProgressBar(list);
+          _createButtomState = false;
         }
       case < 8:
         if (_controller
@@ -214,32 +231,38 @@ class _NewaccountPageState extends State<NewaccountPage> {
           list.add(const Text('invalid',
               style: TextStyle(fontSize: 12, color: global.red)));
           _controller.updateProgressBar(list);
+          _createButtomState = false;
         } else {
           list.add(const Text('invalid',
               style: TextStyle(fontSize: 12, color: global.red)));
           _controller.updateProgressBar(list);
+          _createButtomState = false;
         }
-      case < 12:
+      case >= 8 && < 12:
         if (_controller
             .passwordCheckValidators(_passwordTextController.text.trim())) {
           list.add(const Text('medium',
               style: TextStyle(fontSize: 12, color: global.blue)));
           _controller.updateProgressBar(list);
+          _createButtomState = true;
         } else {
           list.add(const Text('invalid',
               style: TextStyle(fontSize: 12, color: global.red)));
           _controller.updateProgressBar(list);
+          _createButtomState = false;
         }
-      case > 12:
+      case >= 12:
         if (_controller
             .passwordCheckValidators(_passwordTextController.text.trim())) {
           list.add(const Text('strong',
               style: TextStyle(fontSize: 12, color: global.green)));
           _controller.updateProgressBar(list);
+          _createButtomState = true;
         } else {
           list.add(const Text('invalid',
               style: TextStyle(fontSize: 12, color: global.red)));
           _controller.updateProgressBar(list);
+          _createButtomState = false;
         }
         break;
       default:

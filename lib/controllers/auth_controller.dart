@@ -6,17 +6,8 @@ class AuthController {
   var isLoading$ = ValueNotifier<bool>(false);
   var titleValueNotifTest$ = ValueNotifier<String>('Hello, user!');
   var progressBar$ = ValueNotifier<List<Widget>>([]);
-  var validatorsWidgets = ValueNotifier<List<Widget>>([
-    const Text('  • 1 uppercase letter',
-        style: TextStyle(fontSize: 10, color: global.majesticMist)),
-    const Text('  • 1 special character',
-        style: TextStyle(fontSize: 10, color: global.majesticMist)),
-    const Text('  • 1 number',
-        style: TextStyle(fontSize: 10, color: global.majesticMist)),
-    const Text('  • 8-16 characters',
-        style: TextStyle(fontSize: 10, color: global.majesticMist)),
-  ]);
-  final validatorsText$ = <String>[
+  var validatorsWidgets$ = ValueNotifier<List<Widget>>([]);
+  final validatorsText = <String>[
     '  • 1 uppercase letter',
     '  • 1 special character',
     '  • 8-16 characters',
@@ -37,16 +28,16 @@ class AuthController {
     for (var i = 0; i < _validators.length; i++) {
       if (_validators[i].hasMatch(value)) {
         list.add(
-          Text('  • ${validatorsText$[i].toString()}',
+          Text('  • ${validatorsText[i].toString()}',
               style: const TextStyle(fontSize: 10, color: global.green)),
         );
         count++;
       } else {
-        list.add(Text('  • ${validatorsText$[i].toString()}',
+        list.add(Text('  • ${validatorsText[i].toString()}',
             style: const TextStyle(fontSize: 10, color: global.majesticMist)));
       }
     }
-    validatorsWidgets.value = list;
+    validatorsWidgets$.value = list;
     bool isStrong = false;
     if (count == 3) {
       isStrong = true;
