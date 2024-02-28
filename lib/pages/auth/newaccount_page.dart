@@ -53,7 +53,6 @@ class _NewaccountPageState extends State<NewaccountPage> {
         height: MediaQuery.of(context).size.height,
         child: Center(
           child: SingleChildScrollView(
-            reverse: true,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

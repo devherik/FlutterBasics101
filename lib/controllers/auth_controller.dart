@@ -28,12 +28,12 @@ class AuthController {
     for (var i = 0; i < _validators.length; i++) {
       if (_validators[i].hasMatch(value)) {
         list.add(
-          Text('  • ${validatorsText[i].toString()}',
+          Text(validatorsText[i].toString(),
               style: const TextStyle(fontSize: 10, color: global.green)),
         );
         count++;
       } else {
-        list.add(Text('  • ${validatorsText[i].toString()}',
+        list.add(Text(validatorsText[i].toString(),
             style: const TextStyle(fontSize: 10, color: global.majesticMist)));
       }
     }
