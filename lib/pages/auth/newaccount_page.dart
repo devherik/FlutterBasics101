@@ -45,6 +45,17 @@ class _NewaccountPageState extends State<NewaccountPage> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(0, 32, 10, 10),
         centerTitle: true,
+        actions: <Widget>[
+          MaterialButton(
+            onPressed: () {},
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: const Icon(
+              Icons.code,
+              color: global.brightGrey,
+            ),
+          ),
+        ],
       ),
       extendBodyBehindAppBar: true,
       body: Container(

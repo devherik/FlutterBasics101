@@ -25,6 +25,17 @@ class _ValuenotifierPageState extends State<ValuenotifierPage> {
           ),
         ),
         backgroundColor: Colors.transparent,
+        actions: <Widget>[
+          MaterialButton(
+            onPressed: () {},
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: const Icon(
+              Icons.code,
+              color: global.brightGrey,
+            ),
+          ),
+        ],
       ),
       extendBodyBehindAppBar: true,
       body: Container(

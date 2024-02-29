@@ -12,6 +12,17 @@ class RecoveryPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: global.sombreGrey,
+        actions: <Widget>[
+          MaterialButton(
+            onPressed: () {},
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: const Icon(
+              Icons.code,
+              color: global.brightGrey,
+            ),
+          ),
+        ],
       ),
       extendBodyBehindAppBar: true,
       body: Container(

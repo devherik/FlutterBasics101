@@ -17,6 +17,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      // drawer: homeDrawer(),
+      extendBodyBehindAppBar: true,
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
         height: MediaQuery.of(context).size.height,
@@ -27,11 +32,12 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * .25),
+                SizedBox(height: MediaQuery.of(context).size.height * .15),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 14),
                   child: Text(
                     'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it.',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 26,
                         letterSpacing: 0,
@@ -44,70 +50,28 @@ class _HomePageState extends State<HomePage> {
                   child: Divider(),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  child: MaterialButton(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 24, horizontal: 12),
-                    minWidth: MediaQuery.of(context).size.width,
-                    onPressed: () {
-                      context.push('/home/valuenotifier');
-                    },
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(26)),
-                    child: const Wrap(
-                      children: [
-                        Center(
-                          child: Text(
-                            'Value Notifier Simple Sample ',
-                            style: TextStyle(
-                              color: global.brightGrey,
-                              letterSpacing: 3,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Icon(
-                            Icons.arrow_forward,
-                            color: global.brightGrey,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    child: basicMaterialButtom(
+                        '/home/valuenotifier', 'ValueNotifier Sample')),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  child: MaterialButton(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 24, horizontal: 12),
-                    minWidth: MediaQuery.of(context).size.width,
-                    onPressed: () {
-                      context.push('/home/auth');
-                    },
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(26)),
-                    child: const Wrap(
-                      children: [
-                        Center(
-                          child: Text(
-                            'Form Authentication Simple Sample ',
-                            style: TextStyle(
-                              color: global.brightGrey,
-                              letterSpacing: 3,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Icon(
-                            Icons.arrow_forward,
-                            color: global.brightGrey,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    child: basicMaterialButtom(
+                        '/home/auth', 'Account Login Sample')),
+                Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    child: basicMaterialButtom(
+                        '/home/translate', 'Translate Text Sample')),
+                Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    child: basicMaterialButtom(
+                        '/home/translate', 'Gemini Integration Sample')),
+                Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    child: basicMaterialButtom(
+                        '/home/dataanalytics', 'Data Analytics Sample')),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  child: Divider(),
                 ),
               ],
             ),
@@ -116,4 +80,65 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Widget basicMaterialButtom(String path, String label) => MaterialButton(
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
+        minWidth: MediaQuery.of(context).size.width,
+        onPressed: () {
+          context.push(path);
+        },
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
+        child: Wrap(
+          children: [
+            Center(
+              child: Text(
+                label,
+                style: const TextStyle(
+                  color: global.brightGrey,
+                  letterSpacing: 3,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            const Center(
+              child: Icon(
+                Icons.arrow_forward,
+                color: global.brightGrey,
+              ),
+            )
+          ],
+        ),
+      );
+  Widget homeDrawer() => Drawer(
+        backgroundColor: global.sombreGrey,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .15,
+                width: MediaQuery.of(context).size.width,
+                child: Stack(children: <Widget>[
+                  Container(
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.black54),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: global.green),
+                  ),
+                ]),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Text('Hello'),
+              )
+            ],
+          ),
+        ),
+      );
 }

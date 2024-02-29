@@ -40,6 +40,17 @@ class _AuthPageState extends State<AuthPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle: true,
+        actions: <Widget>[
+          MaterialButton(
+            onPressed: () {},
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: const Icon(
+              Icons.code,
+              color: global.brightGrey,
+            ),
+          ),
+        ],
       ),
       extendBodyBehindAppBar: true,
       body: Container(
