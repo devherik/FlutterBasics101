@@ -13,7 +13,7 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   final _controller = AuthController();
-  final _nameTextController = TextEditingController();
+  final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
   bool _hidePassword = true;
   bool _loginButtomState = false;
@@ -23,7 +23,7 @@ class _AuthPageState extends State<AuthPage> {
     // TODO: implement initState
     super.initState();
     _passwordTextController.addListener(() {
-      if (_nameTextController.text.isNotEmpty &&
+      if (_emailTextController.text.isNotEmpty &&
           _passwordTextController.text.isNotEmpty) {
         setState(() {
           _loginButtomState = true;
@@ -70,7 +70,7 @@ class _AuthPageState extends State<AuthPage> {
                   style: TextStyle(fontSize: 18),
                 ),
                 const SizedBox(height: 50),
-                nameField(),
+                emailField(),
                 const SizedBox(height: 15),
                 passwordFiel(),
                 const SizedBox(height: 35),
@@ -112,7 +112,7 @@ class _AuthPageState extends State<AuthPage> {
 
   bool _checkInputs() {
     // check the data from textfields and return true if they are empty
-    if (_nameTextController.text.trim().isEmpty ||
+    if (_emailTextController.text.trim().isEmpty ||
         _passwordTextController.text.trim().isEmpty) {
       return false;
     } else {
@@ -120,10 +120,10 @@ class _AuthPageState extends State<AuthPage> {
     }
   }
 
-  Widget nameField() => TextFormField(
-        controller: _nameTextController,
+  Widget emailField() => TextFormField(
+        controller: _emailTextController,
         maxLines: 1,
-        keyboardType: TextInputType.name,
+        keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
         textAlign: TextAlign.start,
         style: const TextStyle(
@@ -132,7 +132,7 @@ class _AuthPageState extends State<AuthPage> {
           contentPadding:
               const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
           label: const Text(
-            'Name',
+            'E-mail',
             style: TextStyle(
                 fontSize: 16, color: global.brightGrey, letterSpacing: 3),
           ),
@@ -150,7 +150,7 @@ class _AuthPageState extends State<AuthPage> {
             ),
           ),
           counterStyle: const TextStyle(color: global.naturallyCalm),
-          hintText: 'Insert your name',
+          hintText: 'Insert your e-mail',
           hintStyle: const TextStyle(
               fontSize: 14, color: Colors.grey, letterSpacing: 3),
         ),
@@ -216,7 +216,7 @@ class _AuthPageState extends State<AuthPage> {
             ? () {
                 _checkInputs()
                     ? _controller
-                        .setName("Hello, ${_nameTextController.text.trim()}!")
+                        .setName("Hello, ${_emailTextController.text.trim()}!")
                     : _controller.setName('You\'ll need a name, mate!');
               }
             : null,

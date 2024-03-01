@@ -11,7 +11,7 @@ class NewaccountPage extends StatefulWidget {
 
 class _NewaccountPageState extends State<NewaccountPage> {
   final _controller = AuthController();
-  final _nameTextController = TextEditingController();
+  final _emailTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
   bool _hidePassword = true;
   bool _createButtomState = false;
@@ -25,9 +25,9 @@ class _NewaccountPageState extends State<NewaccountPage> {
       progressBar();
       setState(() {});
     });
-    _nameTextController.addListener(() {
-      if (_nameTextController.text.isNotEmpty &&
-          _nameTextController.text.length >= 8) {
+    _emailTextController.addListener(() {
+      if (_emailTextController.text.isNotEmpty &&
+          _emailTextController.text.length >= 8) {
         setState(() {
           _passwordFielState = true;
         });
@@ -89,9 +89,9 @@ class _NewaccountPageState extends State<NewaccountPage> {
   }
 
   Widget nameField() => TextFormField(
-        controller: _nameTextController,
+        controller: _emailTextController,
         maxLines: 1,
-        keyboardType: TextInputType.name,
+        keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
         textAlign: TextAlign.start,
         style: const TextStyle(
@@ -100,7 +100,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
           contentPadding:
               const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
           label: const Text(
-            'Name',
+            'E-mail',
             style: TextStyle(
                 fontSize: 16, color: global.brightGrey, letterSpacing: 3),
           ),
@@ -118,7 +118,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
             ),
           ),
           counterStyle: const TextStyle(color: global.naturallyCalm),
-          hintText: 'Insert your name',
+          hintText: 'Insert your e-mail',
           hintStyle: const TextStyle(
               fontSize: 14, color: Colors.grey, letterSpacing: 3),
         ),
