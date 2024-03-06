@@ -1,3 +1,4 @@
+import 'package:basic101/controllers/data_analytics_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:basic101/config/app_globals.dart' as global;
 
@@ -9,6 +10,7 @@ class DataAnalyticsPage extends StatefulWidget {
 }
 
 class _DataAnalyticsPageState extends State<DataAnalyticsPage> {
+  final controller = DataAnalyticsController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

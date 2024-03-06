@@ -118,5 +118,5 @@ class AppRouter {
         ),
       ],
     ),
-  ], initialLocation: '/home/translate');
+  ], initialLocation: '/home/dataanalytics');
 }
