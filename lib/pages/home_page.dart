@@ -88,6 +88,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            const SizedBox(height: 30),
             const Center(
               child: Icon(
                 Icons.arrow_forward,
@@ -97,6 +98,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       );
+
   Widget homeDrawer() => Drawer(
         backgroundColor: global.sombreGrey,
         child: Container(
