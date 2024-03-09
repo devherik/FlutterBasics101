@@ -41,11 +41,9 @@ class RecoveryPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16),
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 100),
                 emailField(),
-                const SizedBox(
-                  height: 35,
-                ),
+                const SizedBox(height: 50),
                 MaterialButton(
                   padding:
                       const EdgeInsets.symmetric(vertical: 24, horizontal: 12),

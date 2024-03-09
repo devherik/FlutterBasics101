@@ -57,18 +57,6 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     child: basicMaterialButtom(
                         '/home/auth', 'Account Login Sample')),
-                Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    child: basicMaterialButtom(
-                        '/home/translate', 'Translate Text Sample')),
-                Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    child: basicMaterialButtom(
-                        '/home/translate', 'Gemini Integration Sample')),
-                Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    child: basicMaterialButtom(
-                        '/home/dataanalytics', 'Data Analytics Sample')),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 14),
                   child: Divider(),

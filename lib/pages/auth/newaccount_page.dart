@@ -15,7 +15,6 @@ class _NewaccountPageState extends State<NewaccountPage> {
   final _passwordTextController = TextEditingController();
   bool _hidePassword = true;
   bool _createButtomState = false;
-  bool _passwordFielState = false;
 
   @override
   void initState() {
@@ -24,18 +23,6 @@ class _NewaccountPageState extends State<NewaccountPage> {
     _passwordTextController.addListener(() {
       progressBar();
       setState(() {});
-    });
-    _emailTextController.addListener(() {
-      if (_emailTextController.text.isNotEmpty &&
-          _emailTextController.text.length >= 8) {
-        setState(() {
-          _passwordFielState = true;
-        });
-      } else {
-        setState(() {
-          _passwordFielState = false;
-        });
-      }
     });
   }
 
@@ -73,7 +60,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16),
                 ),
-                const SizedBox(height: 35),
+                const SizedBox(height: 100),
                 nameField(),
                 const SizedBox(height: 25),
                 newPasswordField(),
@@ -125,7 +112,6 @@ class _NewaccountPageState extends State<NewaccountPage> {
       );
 
   Widget newPasswordField() => TextFormField(
-        enabled: _passwordFielState,
         controller: _passwordTextController,
         onChanged: progressBar(),
         maxLines: 1,
@@ -207,7 +193,12 @@ class _NewaccountPageState extends State<NewaccountPage> {
   Widget confirmNewaccountButtom() => MaterialButton(
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: _createButtomState ? () {} : null,
+        onPressed: _createButtomState
+            ? () {
+                if (_checkInputs()) {
+                } else {}
+              }
+            : null,
         splashColor: global.brightGrey,
         elevation: 2,
         color: global.sombreGrey,
@@ -218,6 +209,16 @@ class _NewaccountPageState extends State<NewaccountPage> {
               color: global.brightGrey, letterSpacing: 3, fontSize: 16),
         ),
       );
+
+  bool _checkInputs() {
+    // check the data from textfields and return true if they are empty
+    if (_emailTextController.text.trim().isEmpty ||
+        _passwordTextController.text.trim().isEmpty) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   progressBar() {
     var list = <Widget>[];

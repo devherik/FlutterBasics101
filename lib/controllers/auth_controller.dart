@@ -4,7 +4,6 @@ import 'package:basic101/config/app_globals.dart' as global;
 
 class AuthController {
   var isLoading$ = ValueNotifier<bool>(false);
-  var titleValueNotifTest$ = ValueNotifier<String>('Hello, user!');
   var progressBar$ = ValueNotifier<List<Widget>>([]);
   var validatorsWidgets$ = ValueNotifier<List<Widget>>([]);
   final validatorsText = <String>[
@@ -20,7 +19,6 @@ class AuthController {
 
   addWidget(Widget child) => progressBar$.value.add(child);
   updateProgressBar(List<Widget> list) => progressBar$.value = list;
-  setName(String value) => titleValueNotifTest$.value = value;
 
   bool passwordCheckValidators(String value) {
     var list = <Widget>[];
