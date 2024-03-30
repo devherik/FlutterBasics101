@@ -1,6 +1,7 @@
 import 'package:basic101/pages/auth/auth_page.dart';
 import 'package:basic101/pages/auth/newaccount_page.dart';
 import 'package:basic101/pages/auth/recovery_page.dart';
+import 'package:basic101/pages/code_view_page.dart';
 import 'package:basic101/pages/home_page.dart';
 import 'package:basic101/pages/valuenotifier_page.dart';
 import 'package:flutter/material.dart';
@@ -73,8 +74,20 @@ class AppRouter {
               child: child,
             ),
           ),
-        )
+        ),
       ],
+    ),
+    GoRoute(
+      path: '/codeview',
+      name: 'codeview',
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
+        child: CodeViewPage(code: state.extra! as String),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+      ),
     ),
   ], initialLocation: '/home');
 }

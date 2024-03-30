@@ -4,7 +4,6 @@ import 'package:basic101/config/app_globals.dart' as global;
 
 class AuthController {
   var isLoading$ = ValueNotifier<bool>(false);
-  var titleValueNotifTest$ = ValueNotifier<String>('Hello, user!');
   var progressBar$ = ValueNotifier<List<Widget>>([]);
   var validatorsWidgets$ = ValueNotifier<List<Widget>>([]);
   final validatorsText = <String>[
@@ -20,7 +19,6 @@ class AuthController {
 
   addWidget(Widget child) => progressBar$.value.add(child);
   updateProgressBar(List<Widget> list) => progressBar$.value = list;
-  setName(String value) => titleValueNotifTest$.value = value;
 
   bool passwordCheckValidators(String value) {
     var list = <Widget>[];
@@ -28,12 +26,12 @@ class AuthController {
     for (var i = 0; i < _validators.length; i++) {
       if (_validators[i].hasMatch(value)) {
         list.add(
-          Text('  • ${validatorsText[i].toString()}',
+          Text(validatorsText[i].toString(),
               style: const TextStyle(fontSize: 10, color: global.green)),
         );
         count++;
       } else {
-        list.add(Text('  • ${validatorsText[i].toString()}',
+        list.add(Text(validatorsText[i].toString(),
             style: const TextStyle(fontSize: 10, color: global.majesticMist)));
       }
     }
