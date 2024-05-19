@@ -32,17 +32,13 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * .15),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 14),
+                SizedBox(height: MediaQuery.of(context).size.height * .10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 14),
                   child: Text(
                     'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 26,
-                        letterSpacing: 0,
-                        leadingDistribution:
-                            TextLeadingDistribution.proportional),
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
                 ),
                 const Padding(
@@ -69,33 +65,25 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget basicMaterialButtom(String path, String label) => MaterialButton(
-        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
-        minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {
-          context.push(path);
-        },
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
-        child: Wrap(
-          children: [
-            Center(
-              child: Text(
-                label,
-                style: const TextStyle(
-                  color: global.brightGrey,
-                  letterSpacing: 3,
-                  fontSize: 16,
+  Widget basicMaterialButtom(String path, String label) => ElevatedButtonTheme(
+        data: Theme.of(context).elevatedButtonTheme,
+        child: ElevatedButton(
+          onPressed: () {
+            context.push(path);
+          },
+          child: Wrap(
+            children: [
+              Center(
+                child: Text(
+                  label,
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
               ),
-            ),
-            const SizedBox(height: 30),
-            const Center(
-              child: Icon(
-                Icons.arrow_forward,
-                color: global.brightGrey,
-              ),
-            )
-          ],
+              const Center(
+                child: Icon(Icons.arrow_forward),
+              )
+            ],
+          ),
         ),
       );
 

@@ -22,7 +22,9 @@ class _Basic101State extends State<Basic101> {
     return MaterialApp.router(
       routerConfig: AppRouter().router,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.night,
+      theme: AppTheme.day,
+      darkTheme: AppTheme.night,
+      themeMode: ThemeMode.system,
     );
   }
 }
