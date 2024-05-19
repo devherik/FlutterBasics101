@@ -99,6 +99,7 @@ abstract class AppTheme {
           background: global.sombreGrey,
           error: global.red),
       appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(color: global.brightGrey),
         titleTextStyle: TextStyle(
           color: global.brightGrey,
@@ -128,12 +129,12 @@ abstract class AppTheme {
         ),
         labelMedium: TextStyle(
           fontSize: 14,
-          color: global.sombreGrey,
+          color: global.brightGrey,
           letterSpacing: 3,
         ),
         labelSmall: TextStyle(
           fontSize: 10,
-          color: global.sombreGrey,
+          color: global.brightGrey,
           letterSpacing: 3,
         ),
       ),
@@ -146,13 +147,13 @@ abstract class AppTheme {
           backgroundColor: MaterialStateProperty.resolveWith(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.hovered)) {
-                return global.naturallyCalm;
+                return global.majesticMist;
               } else {
-                return global.brightGrey;
+                return global.sombreGrey;
               }
             },
           ),
-          iconColor: MaterialStateProperty.all<Color>(global.sombreGrey),
+          iconColor: MaterialStateProperty.all<Color>(global.brightGrey),
           padding:
               MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(
             vertical: 24,
@@ -161,7 +162,7 @@ abstract class AppTheme {
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           ),
-          shadowColor: MaterialStateProperty.all<Color>(global.naturallyCalm),
+          shadowColor: MaterialStateProperty.all<Color>(global.sombreGrey),
           elevation:
               MaterialStateProperty.resolveWith((Set<MaterialState> states) {
             if (states.contains(MaterialState.hovered)) {

@@ -1,7 +1,6 @@
 import 'package:basic101/controllers/valuenotifier_controller.dart';
 import 'package:flutter/material.dart';
 
-import 'package:basic101/config/app_globals.dart' as global;
 import 'package:go_router/go_router.dart';
 
 class ValuenotifierPage extends StatefulWidget {
@@ -18,14 +17,6 @@ class _ValuenotifierPageState extends State<ValuenotifierPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: ValueListenableBuilder(
-          valueListenable: controller.textShowed$,
-          builder: (context, value, child) => Text(
-            value,
-          ),
-        ),
-        backgroundColor: Colors.transparent,
         actions: <Widget>[
           MaterialButton(
             onPressed: () {
@@ -166,9 +157,11 @@ class ValuenotifierController {
             },
             shape: const CircleBorder(),
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: const Icon(
-              Icons.code,
-              color: global.brightGrey,
+            child: IconTheme(
+              data: Theme.of(context).iconTheme,
+              child: const Icon(
+                Icons.code,
+              ),
             ),
           ),
         ],
@@ -181,67 +174,71 @@ class ValuenotifierController {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MaterialButton(
-              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
-              minWidth: MediaQuery.of(context).size.width,
-              onPressed: controller.english,
-              splashColor: global.brightGrey,
-              elevation: 2,
-              color: global.sombreGrey,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(26)),
-              child: const Text(
-                'English',
-                style: TextStyle(
-                    color: global.brightGrey, letterSpacing: 3, fontSize: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 34),
+              child: ValueListenableBuilder(
+                valueListenable: controller.textShowed$,
+                builder: (context, value, child) => Text(
+                  value,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
+              ),
+            ),
+            const Divider(),
+            const SizedBox(height: 15),
+            ElevatedButtonTheme(
+              data: Theme.of(context).elevatedButtonTheme,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: controller.english,
+                  child: Text(
+                    'English',
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 15),
-            MaterialButton(
-              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
-              minWidth: MediaQuery.of(context).size.width,
-              onPressed: controller.spanish,
-              splashColor: global.brightGrey,
-              elevation: 2,
-              color: global.sombreGrey,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(26)),
-              child: const Text(
-                'Spanish',
-                style: TextStyle(
-                    color: global.brightGrey, letterSpacing: 3, fontSize: 16),
+            ElevatedButtonTheme(
+              data: Theme.of(context).elevatedButtonTheme,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: controller.spanish,
+                  child: Text(
+                    'Spanish',
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 15),
-            MaterialButton(
-              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
-              minWidth: MediaQuery.of(context).size.width,
-              onPressed: controller.french,
-              splashColor: global.brightGrey,
-              elevation: 2,
-              color: global.sombreGrey,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(26)),
-              child: const Text(
-                'French',
-                style: TextStyle(
-                    color: global.brightGrey, letterSpacing: 3, fontSize: 16),
+            ElevatedButtonTheme(
+              data: Theme.of(context).elevatedButtonTheme,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: controller.french,
+                  child: Text(
+                    'French',
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 15),
-            MaterialButton(
-              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
-              minWidth: MediaQuery.of(context).size.width,
-              onPressed: controller.portuguese,
-              splashColor: global.brightGrey,
-              elevation: 2,
-              color: global.sombreGrey,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(26)),
-              child: const Text(
-                'Portuguese',
-                style: TextStyle(
-                    color: global.brightGrey, letterSpacing: 3, fontSize: 16),
+            ElevatedButtonTheme(
+              data: Theme.of(context).elevatedButtonTheme,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                  onPressed: controller.portuguese,
+                  child: Text(
+                    'Portuguese',
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ),
               ),
             ),
           ],
