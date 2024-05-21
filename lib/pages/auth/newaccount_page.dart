@@ -19,7 +19,6 @@ class _NewaccountPageState extends State<NewaccountPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _passwordTextController.addListener(() {
       progressBar();
@@ -58,7 +57,6 @@ class _NewaccountPageState extends State<NewaccountPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _passwordTextController.addListener(() {
       progressBar();
@@ -329,9 +327,11 @@ class _NewaccountPageState extends State<NewaccountPage> {
             },
             shape: const CircleBorder(),
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: const Icon(
-              Icons.code,
-              color: global.brightGrey,
+            child: IconTheme(
+              data: Theme.of(context).iconTheme,
+              child: const Icon(
+                Icons.code,
+              ),
             ),
           ),
         ],
@@ -347,10 +347,10 @@ class _NewaccountPageState extends State<NewaccountPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Text(
+                Text(
                   'Now, let\'s create a new account for you',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16),
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
                 const SizedBox(height: 100),
                 nameField(),
@@ -373,15 +373,13 @@ class _NewaccountPageState extends State<NewaccountPage> {
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
         textAlign: TextAlign.start,
-        style: const TextStyle(
-            fontSize: 16, color: global.brightGrey, letterSpacing: 3),
+        style: Theme.of(context).textTheme.labelMedium,
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-          label: const Text(
+          label: Text(
             'E-mail',
-            style: TextStyle(
-                fontSize: 16, color: global.brightGrey, letterSpacing: 3),
+            style: Theme.of(context).textTheme.labelMedium,
           ),
           fillColor: global.sombreGrey,
           border: OutlineInputBorder(
@@ -398,8 +396,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
           ),
           counterStyle: const TextStyle(color: global.naturallyCalm),
           hintText: 'Insert your e-mail',
-          hintStyle: const TextStyle(
-              fontSize: 14, color: Colors.grey, letterSpacing: 3),
+          hintStyle: Theme.of(context).textTheme.labelMedium,
         ),
       );
 
@@ -412,8 +409,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
         textInputAction: TextInputAction.next,
         obscureText: _hidePassword,
         textAlign: TextAlign.start,
-        style: const TextStyle(
-            fontSize: 16, color: global.brightGrey, letterSpacing: 3),
+        style: Theme.of(context).textTheme.labelMedium,
         decoration: InputDecoration(
           counter: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -441,10 +437,9 @@ class _NewaccountPageState extends State<NewaccountPage> {
           ),
           contentPadding:
               const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-          label: const Text(
+          label: Text(
             'Password',
-            style: TextStyle(
-                fontSize: 16, color: global.brightGrey, letterSpacing: 3),
+            style: Theme.of(context).textTheme.labelMedium,
           ),
           fillColor: global.sombreGrey,
           border: OutlineInputBorder(

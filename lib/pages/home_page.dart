@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it.',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.displaySmall,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ),
                 const Padding(
@@ -105,13 +105,13 @@ class _HomePageState extends State<HomePage> {
                         shape: BoxShape.circle, color: Colors.black54),
                   ),
                   Container(
-                    margin: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
+                    margin: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: global.green),
                   ),
                 ]),
               ),
-              Align(
+              const Align(
                 alignment: Alignment.bottomCenter,
                 child: Text('Hello'),
               )

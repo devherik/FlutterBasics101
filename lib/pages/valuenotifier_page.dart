@@ -171,77 +171,80 @@ class ValuenotifierController {
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 34),
-              child: ValueListenableBuilder(
-                valueListenable: controller.textShowed$,
-                builder: (context, value, child) => Text(
-                  value,
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-              ),
-            ),
-            const Divider(),
-            const SizedBox(height: 15),
-            ElevatedButtonTheme(
-              data: Theme.of(context).elevatedButtonTheme,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton(
-                  onPressed: controller.english,
-                  child: Text(
-                    'English',
-                    style: Theme.of(context).textTheme.labelMedium,
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 34),
+                  child: ValueListenableBuilder(
+                    valueListenable: controller.textShowed$,
+                    builder: (context, value, child) => Text(
+                      value,
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 15),
-            ElevatedButtonTheme(
-              data: Theme.of(context).elevatedButtonTheme,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton(
-                  onPressed: controller.spanish,
-                  child: Text(
-                    'Spanish',
-                    style: Theme.of(context).textTheme.labelMedium,
+                const SizedBox(height: 35),
+                ElevatedButtonTheme(
+                  data: Theme.of(context).elevatedButtonTheme,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      onPressed: controller.english,
+                      child: Text(
+                        'English',
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 15),
-            ElevatedButtonTheme(
-              data: Theme.of(context).elevatedButtonTheme,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton(
-                  onPressed: controller.french,
-                  child: Text(
-                    'French',
-                    style: Theme.of(context).textTheme.labelMedium,
+                const SizedBox(height: 15),
+                ElevatedButtonTheme(
+                  data: Theme.of(context).elevatedButtonTheme,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      onPressed: controller.spanish,
+                      child: Text(
+                        'Spanish',
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 15),
-            ElevatedButtonTheme(
-              data: Theme.of(context).elevatedButtonTheme,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton(
-                  onPressed: controller.portuguese,
-                  child: Text(
-                    'Portuguese',
-                    style: Theme.of(context).textTheme.labelMedium,
+                const SizedBox(height: 15),
+                ElevatedButtonTheme(
+                  data: Theme.of(context).elevatedButtonTheme,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      onPressed: controller.french,
+                      child: Text(
+                        'French',
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                const SizedBox(height: 15),
+                ElevatedButtonTheme(
+                  data: Theme.of(context).elevatedButtonTheme,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      onPressed: controller.portuguese,
+                      child: Text(
+                        'Portuguese',
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

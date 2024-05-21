@@ -18,7 +18,6 @@ class _AuthPageState extends State<AuthPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _passwordTextController.addListener(() {
       if (_emailTextController.text.isNotEmpty &&
@@ -61,7 +60,6 @@ class _AuthPageState extends State<AuthPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _passwordTextController.addListener(() {
       if (_emailTextController.text.isNotEmpty &&
@@ -293,9 +291,11 @@ class _AuthPageState extends State<AuthPage> {
             },
             shape: const CircleBorder(),
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: const Icon(
-              Icons.code,
-              color: global.brightGrey,
+            child: IconTheme(
+              data: Theme.of(context).iconTheme,
+              child: const Icon(
+                Icons.code,
+              ),
             ),
           ),
         ],
@@ -313,9 +313,9 @@ class _AuthPageState extends State<AuthPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               verticalDirection: VerticalDirection.down,
               children: <Widget>[
-                const Text(
+                Text(
                   'Welcome back',
-                  style: TextStyle(fontSize: 18),
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
                 const SizedBox(height: 100),
                 emailField(),
@@ -326,27 +326,30 @@ class _AuthPageState extends State<AuthPage> {
                 const SizedBox(height: 15),
                 MaterialButton(
                   onPressed: () => context.go('/home/auth/recovery'),
-                  color: global.sombreGrey,
+                  color: Colors.transparent,
                   elevation: 0,
-                  splashColor: global.sombreGrey,
+                  splashColor: global.naturallyCalm,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(26)),
-                  child: const Text(
+                      borderRadius: BorderRadius.circular(6)),
+                  child: Text(
                     'Forgot password?',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 12, color: global.majesticMist),
+                    style: Theme.of(context).textTheme.labelSmall,
                   ),
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 MaterialButton(
                   onPressed: () => context.push('/home/auth/newaccount'),
-                  color: global.sombreGrey,
+                  color: Colors.transparent,
                   elevation: 0,
-                  splashColor: global.sombreGrey,
+                  splashColor: global.naturallyCalm,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(26)),
-                  child: const Text(
+                      borderRadius: BorderRadius.circular(6)),
+                  child: Text(
                     'Click here to create an account.',
-                    style: TextStyle(fontSize: 12, color: global.majesticMist),
+                    style: Theme.of(context).textTheme.labelSmall,
                   ),
                 ),
               ],
@@ -373,34 +376,29 @@ class _AuthPageState extends State<AuthPage> {
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.next,
         textAlign: TextAlign.start,
-        style: const TextStyle(
-            fontSize: 16, color: global.brightGrey, letterSpacing: 3),
+        style: Theme.of(context).textTheme.labelMedium,
         decoration: InputDecoration(
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-          label: const Text(
-            'E-mail',
-            style: TextStyle(
-                fontSize: 16, color: global.brightGrey, letterSpacing: 3),
-          ),
-          fillColor: global.sombreGrey,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
-            borderSide: const BorderSide(
-              color: global.sombreGrey,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+            label: Text(
+              'E-mail',
+              style: Theme.of(context).textTheme.labelMedium,
             ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
-            borderSide: const BorderSide(
-              color: global.sombreGrey,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: const BorderSide(
+                color: global.sombreGrey,
+              ),
             ),
-          ),
-          counterStyle: const TextStyle(color: global.naturallyCalm),
-          hintText: 'Insert your e-mail',
-          hintStyle: const TextStyle(
-              fontSize: 14, color: Colors.grey, letterSpacing: 3),
-        ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: const BorderSide(
+                color: global.sombreGrey,
+              ),
+            ),
+            counterStyle: const TextStyle(color: global.naturallyCalm),
+            hintText: 'Insert your e-mail',
+            hintStyle: Theme.of(context).textTheme.labelMedium),
       );
 
   Widget passwordFiel() => TextFormField(
@@ -410,86 +408,80 @@ class _AuthPageState extends State<AuthPage> {
         textInputAction: TextInputAction.next,
         obscureText: _hidePassword,
         textAlign: TextAlign.start,
-        style: const TextStyle(
-            fontSize: 16, color: global.brightGrey, letterSpacing: 3),
+        style: Theme.of(context).textTheme.labelMedium,
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-          label: const Text(
+          label: Text(
             'Password',
-            style: TextStyle(
-                fontSize: 16, color: global.brightGrey, letterSpacing: 3),
+            style: Theme.of(context).textTheme.labelMedium,
           ),
-          fillColor: global.sombreGrey,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
+            borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(
               color: global.sombreGrey,
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
+            borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(
               color: global.sombreGrey,
             ),
           ),
-          counterStyle: const TextStyle(color: global.naturallyCalm),
           hintText: 'Insert your password',
-          hintStyle: const TextStyle(
-              fontSize: 14, color: Colors.grey, letterSpacing: 3),
+          hintStyle: Theme.of(context).textTheme.labelMedium,
           suffixIcon: GestureDetector(
             onTap: () => setState(() {
               _hidePassword = !_hidePassword;
             }),
             child: _hidePassword
-                ? const Icon(
-                    Icons.visibility_off,
-                    size: 22,
-                    color: global.majesticMist,
+                ? IconTheme(
+                    data: Theme.of(context).iconTheme,
+                    child: const Icon(
+                      Icons.visibility_off,
+                    ),
                   )
-                : const Icon(
-                    Icons.visibility,
-                    size: 22,
-                    color: global.majesticMist,
+                : IconTheme(
+                    data: Theme.of(context).iconTheme,
+                    child: const Icon(
+                      Icons.visibility,
+                    ),
                   ),
           ),
         ),
       );
 
-  Widget loginButtom() => MaterialButton(
-        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
-        minWidth: MediaQuery.of(context).size.width,
-        onPressed: _loginButtomState
-            ? () {
-                if (_checkInputs()) {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      backgroundColor: global.sombreGrey,
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      title: Text(
-                        'User ${_emailTextController.text.trim()} logged',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            fontSize: 16,
-                            color: global.brightGrey,
-                            letterSpacing: 3),
-                      ),
-                    ),
-                  ).whenComplete(() => null);
-                } else {}
-              }
-            : null,
-        splashColor: global.brightGrey,
-        elevation: 2,
-        color: global.sombreGrey,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
-        child: const Text(
-          'Login',
-          style: TextStyle(
-              color: global.brightGrey, letterSpacing: 3, fontSize: 16),
-        ),
-      );
+  Widget loginButtom() => ElevatedButtonTheme(
+      data: Theme.of(context).elevatedButtonTheme,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: ElevatedButton(
+            onPressed: _loginButtomState
+                ? () {
+                    if (_checkInputs()) {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          backgroundColor: global.sombreGrey,
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16)),
+                          title: Text(
+                            'User ${_emailTextController.text.trim()} logged',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                fontSize: 16,
+                                color: global.brightGrey,
+                                letterSpacing: 3),
+                          ),
+                        ),
+                      ).whenComplete(() => null);
+                    } else {}
+                  }
+                : null,
+            child: Text(
+              'Login',
+              style: Theme.of(context).textTheme.labelMedium,
+            )),
+      ));
 }

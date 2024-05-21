@@ -13,6 +13,7 @@ abstract class AppTheme {
           background: global.brightGrey,
           error: global.red),
       appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(color: global.sombreGrey),
         titleTextStyle: TextStyle(
           color: global.sombreGrey,
@@ -28,6 +29,12 @@ abstract class AppTheme {
             color: global.sombreGrey,
             letterSpacing: 3,
             leadingDistribution: TextLeadingDistribution.proportional),
+        displayMedium: TextStyle(
+            fontSize: 56,
+            fontWeight: FontWeight.bold,
+            color: global.sombreGrey,
+            letterSpacing: 3,
+            leadingDistribution: TextLeadingDistribution.proportional),
         displaySmall: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
@@ -35,21 +42,21 @@ abstract class AppTheme {
             letterSpacing: 3,
             leadingDistribution: TextLeadingDistribution.proportional),
         bodyMedium: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-          color: global.sombreGrey,
-          letterSpacing: 3,
-        ),
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: global.sombreGrey,
+            letterSpacing: 3,
+            leadingDistribution: TextLeadingDistribution.proportional),
         labelMedium: TextStyle(
-          fontSize: 14,
-          color: global.brightGrey,
-          letterSpacing: 3,
-        ),
+            fontSize: 14,
+            color: global.sombreGrey,
+            letterSpacing: 3,
+            leadingDistribution: TextLeadingDistribution.proportional),
         labelSmall: TextStyle(
-          fontSize: 10,
-          color: global.brightGrey,
-          letterSpacing: 3,
-        ),
+            fontSize: 10,
+            color: global.sombreGrey,
+            letterSpacing: 3,
+            leadingDistribution: TextLeadingDistribution.proportional),
       ),
       dividerTheme: const DividerThemeData(
         color: global.sombreGrey,
@@ -60,13 +67,13 @@ abstract class AppTheme {
           backgroundColor: MaterialStateProperty.resolveWith(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.hovered)) {
-                return global.majesticMist;
+                return global.naturallyCalm;
               } else {
-                return global.sombreGrey;
+                return global.brightGrey;
               }
             },
           ),
-          iconColor: MaterialStateProperty.all<Color>(global.brightGrey),
+          iconColor: MaterialStateProperty.all<Color>(global.sombreGrey),
           padding:
               MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(
             vertical: 24,
@@ -75,7 +82,7 @@ abstract class AppTheme {
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           ),
-          shadowColor: MaterialStateProperty.all<Color>(global.majesticMist),
+          shadowColor: MaterialStateProperty.all<Color>(global.brightGrey),
           elevation:
               MaterialStateProperty.resolveWith((Set<MaterialState> states) {
             if (states.contains(MaterialState.hovered)) {
