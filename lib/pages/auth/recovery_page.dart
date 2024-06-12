@@ -57,7 +57,7 @@ class RecoveryPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const Text(
-                  'Tell us your email, we\'ll send you a reset link',
+                  'Tell us your email, we'll send you a reset link',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16),
                 ),
@@ -177,9 +177,9 @@ class RecoveryPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
-                const SizedBox(height: 100),
+                global.largeSpacer,
                 emailField(context),
-                const SizedBox(height: 50),
+                global.mediumSpacer,
                 ElevatedButtonTheme(
                   data: Theme.of(context).elevatedButtonTheme,
                   child: SizedBox(
@@ -193,7 +193,7 @@ class RecoveryPage extends StatelessWidget {
                               backgroundColor: global.sombreGrey,
                               elevation: 4,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16)),
+                                  borderRadius: BorderRadius.circular(6)),
                               title: Text(
                                 'Check your email inbox',
                                 textAlign: TextAlign.center,
@@ -233,13 +233,13 @@ class RecoveryPage extends StatelessWidget {
         ),
         fillColor: global.sombreGrey,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(26),
+          borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(
             color: global.sombreGrey,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(26),
+          borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(
             color: global.sombreGrey,
           ),

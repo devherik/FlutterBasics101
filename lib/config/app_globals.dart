@@ -1,7 +1,5 @@
 library globals;
 
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 const String title = 'Basic 101';

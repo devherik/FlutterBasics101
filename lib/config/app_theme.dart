@@ -6,11 +6,12 @@ abstract class AppTheme {
   static ThemeData get day {
     return ThemeData(
       useMaterial3: true,
+      scaffoldBackgroundColor: global.brightGrey,
       colorScheme: ColorScheme.fromSeed(
           primary: global.sombreGrey,
           secondary: global.majesticMist,
           seedColor: global.sombreGrey,
-          background: global.brightGrey,
+          surface: global.brightGrey,
           error: global.red),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
@@ -23,6 +24,12 @@ abstract class AppTheme {
       ),
       iconTheme: const IconThemeData(color: global.sombreGrey),
       textTheme: const TextTheme(
+        titleLarge: TextStyle(
+            fontSize: 72,
+            fontWeight: FontWeight.bold,
+            color: global.sombreGrey,
+            letterSpacing: 3,
+            leadingDistribution: TextLeadingDistribution.proportional),
         displayLarge: TextStyle(
             fontSize: 72,
             fontWeight: FontWeight.bold,
@@ -64,28 +71,27 @@ abstract class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.hovered)) {
+          backgroundColor: WidgetStateProperty.resolveWith(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.hovered)) {
                 return global.naturallyCalm;
               } else {
                 return global.brightGrey;
               }
             },
           ),
-          iconColor: MaterialStateProperty.all<Color>(global.sombreGrey),
+          iconColor: WidgetStateProperty.all<Color>(global.sombreGrey),
           padding:
-              MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(
+              WidgetStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(
             vertical: 24,
             horizontal: 12,
           )),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           ),
-          shadowColor: MaterialStateProperty.all<Color>(global.brightGrey),
-          elevation:
-              MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-            if (states.contains(MaterialState.hovered)) {
+          shadowColor: WidgetStateProperty.all<Color>(global.brightGrey),
+          elevation: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+            if (states.contains(WidgetState.hovered)) {
               return 5.0;
             } else {
               return 3.0;
@@ -99,11 +105,12 @@ abstract class AppTheme {
   static ThemeData get night {
     return ThemeData(
       useMaterial3: true,
+      scaffoldBackgroundColor: global.sombreGrey,
       colorScheme: ColorScheme.fromSeed(
           primary: global.brightGrey,
           secondary: global.naturallyCalm,
           seedColor: global.brightGrey,
-          background: global.sombreGrey,
+          surface: global.sombreGrey,
           error: global.red),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
@@ -116,6 +123,12 @@ abstract class AppTheme {
       ),
       iconTheme: const IconThemeData(color: global.brightGrey),
       textTheme: const TextTheme(
+        titleLarge: TextStyle(
+            fontSize: 72,
+            fontWeight: FontWeight.bold,
+            color: global.brightGrey,
+            letterSpacing: 3,
+            leadingDistribution: TextLeadingDistribution.proportional),
         displayLarge: TextStyle(
             fontSize: 72,
             fontWeight: FontWeight.bold,
@@ -151,28 +164,27 @@ abstract class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.hovered)) {
+          backgroundColor: WidgetStateProperty.resolveWith(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.hovered)) {
                 return global.majesticMist;
               } else {
                 return global.sombreGrey;
               }
             },
           ),
-          iconColor: MaterialStateProperty.all<Color>(global.brightGrey),
+          iconColor: WidgetStateProperty.all<Color>(global.brightGrey),
           padding:
-              MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(
+              WidgetStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(
             vertical: 24,
             horizontal: 12,
           )),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           ),
-          shadowColor: MaterialStateProperty.all<Color>(global.sombreGrey),
-          elevation:
-              MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-            if (states.contains(MaterialState.hovered)) {
+          shadowColor: WidgetStateProperty.all<Color>(global.sombreGrey),
+          elevation: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+            if (states.contains(WidgetState.hovered)) {
               return 5.0;
             } else {
               return 3.0;

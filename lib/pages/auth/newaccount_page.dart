@@ -97,7 +97,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const Text(
-                  'Now, let\'s create a new account for you',
+                  'Now, let's create a new account for you',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16),
                 ),
@@ -352,13 +352,13 @@ class _NewaccountPageState extends State<NewaccountPage> {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
-                const SizedBox(height: 100),
+                global.largeSpacer,
                 nameField(),
-                const SizedBox(height: 25),
+                global.smallSpacer,
                 newPasswordField(),
-                const SizedBox(height: 25),
+                global.smallSpacer,
                 confirmNewaccountButtom(),
-                const SizedBox(height: 25)
+                global.smallSpacer
               ],
             ),
           ),
@@ -383,13 +383,13 @@ class _NewaccountPageState extends State<NewaccountPage> {
           ),
           fillColor: global.sombreGrey,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
+            borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(
               color: global.sombreGrey,
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
+            borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(
               color: global.sombreGrey,
             ),
@@ -443,13 +443,13 @@ class _NewaccountPageState extends State<NewaccountPage> {
           ),
           fillColor: global.sombreGrey,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
+            borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(
               color: global.sombreGrey,
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
+            borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(
               color: global.sombreGrey,
             ),
@@ -489,7 +489,7 @@ class _NewaccountPageState extends State<NewaccountPage> {
         splashColor: global.brightGrey,
         elevation: 2,
         color: global.sombreGrey,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: const Text(
           'Create Account',
           style: TextStyle(

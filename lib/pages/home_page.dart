@@ -11,8 +11,18 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   final controller = HomeController();
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
+    animationController.forward();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +42,11 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                global.largeSpacer,
+                Text(
+                  'Basics 101',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
                 global.largeSpacer,
                 Text(
                   'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it.',
@@ -80,6 +95,50 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
+  Widget basicMaterialButtomAnimated(String path, String label) {
+    return GestureDetector(
+      onTap: () => context.push(path),
+      child: AnimatedContainer(
+        duration: const Duration(microseconds: 200),
+        height: 60,
+        width: MediaQuery.of(context).size.width * .9,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.tertiary,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade500,
+              offset: const Offset(6, 6),
+              blurRadius: 15,
+              spreadRadius: 0.5,
+            ),
+            const BoxShadow(
+              color: Colors.white,
+              offset: Offset(-6, -6),
+              blurRadius: 15,
+              spreadRadius: 0.5,
+            )
+          ],
+        ),
+        child: Center(
+          child: Wrap(
+            children: [
+              Center(
+                child: Text(
+                  label,
+                  style: Theme.of(context).textTheme.labelMedium,
+                ),
+              ),
+              const Center(
+                child: Icon(Icons.arrow_forward),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget homeDrawer() => Drawer(
         backgroundColor: global.sombreGrey,
         child: Container(
@@ -112,4 +171,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       );
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 }

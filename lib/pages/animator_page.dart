@@ -159,7 +159,7 @@ class AnimatedLogo extends AnimatedWidget {
       : super(listenable: animation);
 
   static final _opacityTween = Tween<double>(begin: 0.1, end: 1);
-  static final _sizeTween = Tween<double>(begin: 0, end: 300);
+  static final _sizeTween = Tween<double>(begin: 150, end: 300);
 
   @override
   Widget build(BuildContext context) {
