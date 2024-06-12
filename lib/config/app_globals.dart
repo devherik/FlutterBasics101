@@ -16,5 +16,6 @@ const blue = Color.fromARGB(255, 84, 189, 238);
 
 const scaffoldAssetImage = 'assets/background/basic_background.jpeg';
 
-bool dayTheme = true;
-void changeTheme() => dayTheme = !dayTheme;
+var smallSpacer = const SizedBox(height: 12);
+var mediumSpacer = const SizedBox(height: 24);
+var largeSpacer = const SizedBox(height: 48);

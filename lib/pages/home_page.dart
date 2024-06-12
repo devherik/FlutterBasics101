@@ -32,31 +32,24 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * .10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  child: Text(
-                    'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it.',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                global.largeSpacer,
+                Text(
+                  'Be welcome to Basics101, an app to improve my Flutter skills and to become awesome at it.',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 14),
-                  child: Divider(),
-                ),
-                Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    child: basicMaterialButtom(
-                        '/home/valuenotifier', 'ValueNotifier Sample')),
-                Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    child: basicMaterialButtom(
-                        '/home/auth', 'Account Login Sample')),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 14),
-                  child: Divider(),
-                ),
+                global.largeSpacer,
+                const Divider(),
+                global.smallSpacer,
+                basicMaterialButtom(
+                    '/home/valuenotifier', 'ValueNotifier Sample'),
+                global.smallSpacer,
+                basicMaterialButtom('/home/auth', 'Account Login Sample'),
+                global.smallSpacer,
+                basicMaterialButtom(
+                    '/home/animator', 'Animator Flutter Sample'),
+                global.mediumSpacer,
+                const Divider(),
               ],
             ),
           ),

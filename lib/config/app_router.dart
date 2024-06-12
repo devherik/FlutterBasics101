@@ -1,3 +1,4 @@
+import 'package:basic101/pages/animator_page.dart';
 import 'package:basic101/pages/auth/auth_page.dart';
 import 'package:basic101/pages/auth/newaccount_page.dart';
 import 'package:basic101/pages/auth/recovery_page.dart';
@@ -67,6 +68,19 @@ class AppRouter {
           name: 'valuenotifier',
           pageBuilder: (context, state) => CustomTransitionPage<void>(
             child: const ValuenotifierPage(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) =>
+                    FadeTransition(
+              opacity: animation,
+              child: child,
+            ),
+          ),
+        ),
+        GoRoute(
+          path: 'animator',
+          name: 'animator',
+          pageBuilder: (context, state) => CustomTransitionPage<void>(
+            child: const AnimatorPage(),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) =>
                     FadeTransition(

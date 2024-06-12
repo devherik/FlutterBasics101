@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:basic101/config/app_globals.dart' as global;
+import 'package:go_router/go_router.dart';
 
 class CodeViewPage extends StatelessWidget {
   const CodeViewPage({required String code, super.key}) : _code = code;
@@ -11,6 +11,22 @@ class CodeViewPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
+        leading: const SizedBox(),
+        actions: [
+          MaterialButton(
+            onPressed: () {
+              context.pop();
+            },
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: IconTheme(
+              data: Theme.of(context).iconTheme,
+              child: const Icon(
+                Icons.close,
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
         color: Colors.black87,
@@ -24,8 +40,7 @@ class CodeViewPage extends StatelessWidget {
                 Expanded(
                   child: SelectableText(
                     _code,
-                    style: const TextStyle(
-                        color: global.naturallyCalm, fontSize: 14),
+                    style: Theme.of(context).textTheme.labelSmall,
                   ),
                 ),
               ],
